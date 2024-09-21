@@ -7,9 +7,9 @@
         <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div class="flex flex-col lg:gap-3 items-center lg:items-start md:w-[350px]">
                 <a href="{{route('dashboard')}}" class="flex items-center mb-4 space-x-3 lg:items-start sm:mb-0 rtl:space-x-reverse">
-                    <img src="{{ asset('images/hannahLogo.png') }}" class="h-[28px] lg:h-8" alt="Flowbite Logo" />
+                    <img src="{{ asset('images/hannahLogo.png') }}" class="h-[28px] lg:h-8" alt="Hannah Logo" />
                 </a>
-                <p class="w-full text-sm leading-relaxed text-center lg:text-left text-slate-500">Jl. Batavia, Birobuli Utara, Kec. Palu Sel., Kota Palu, Sulawesi Tengah 94111</p>
+                <p class="w-full px-4 text-sm leading-relaxed text-center lg:px-0 lg:text-left text-slate-500">Jl. Batavia, Birobuli Utara, Kec. Palu Sel., Kota Palu, Sulawesi Tengah 94111</p>
             </div>
             <ul class="flex items-center">
                 <div class="flex justify-center w-full gap-3 md:justify-end">
@@ -41,7 +41,7 @@
 
         <hr class="my-6 border-slate-100 sm:mx-auto lg:my-8" />
         <div class="flex justify-center w-full">
-             <span class="pb-8 text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2024 <a href="{{route('dashboard')}}" class="hover:underline">Hannah Asa Indonesia</a>. All Rights Reserved.</span>
+             <span class="pb-8 text-sm text-gray-500 sm:text-center ">© 2024 <a href="{{route('dashboard')}}" class="hover:underline">Hannah Asa Indonesia</a>. All Rights Reserved.</span>
         </div>
     </div>
 </footer>

@@ -16,7 +16,7 @@
         <!-- Scripts -->
         @vite('resources/css/app.css')
     </head>
-    <body class="grid h-screen grid-cols-1 font-sans text-gray-900 md:px-[150px] lg:px-0 lg:grid-cols-3">
+    <body class="grid mt-20 grid-cols-1 font-sans text-gray-900 md:px-[150px] lg:px-0 lg:grid-cols-3">
         <div class="hidden col-span-1 md:block lg:block"></div>
         <div class="grid items-center bg-white">
             <div class="flex flex-col w-full gap-12 px-8 lg:px-8 h-fit">
