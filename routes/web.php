@@ -7,7 +7,7 @@ use App\Http\Middleware\RoleMiddleware;
 
 Route::get('/', function () {
     return view('auth.login');
-});
+})->name('redirectLogin');
 
 Route::middleware('auth')->group(function () {
 
