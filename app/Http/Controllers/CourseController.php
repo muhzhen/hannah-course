@@ -18,13 +18,17 @@ class CourseController extends Controller
          $user = Auth::user();
 
          if(!$user->is_active){
+            // Simpan email pengguna ke session flash
+            session()->flash('auth_name', $user->name);
+            session()->flash('auth_email', $user->email);
+
+            // Logout pengguna
             Auth::logout();
 
-            // Hapus session
-            request()->session()->invalidate();
-            request()->session()->regenerateToken();
 
-            abort(403, 'Your account is inactive.');
+
+            // Redirect ke rute 'inactive'
+            return redirect()->route('inactive');
          }
 
          else if ($user->hasRole('user')) {
