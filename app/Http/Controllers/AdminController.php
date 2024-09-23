@@ -203,4 +203,17 @@ class AdminController extends Controller
         }
     }
 
+    public function destroy($id)
+    {
+        $kursus = Course::find($id);
+
+        if (!$kursus) {
+            return response()->json(['error' => 'Kursus tidak ditemukan'], 404);
+        }
+
+        $kursus->delete();
+
+        return response()->json(['success' => 'Kursus berhasil dihapus'], 200);
+    }
+
 }
