@@ -16,20 +16,24 @@
         <!-- Scripts -->
         @vite('resources/css/app.css')
     </head>
-    <body class="grid mt-20 grid-cols-1 font-sans text-gray-900 md:px-[150px] lg:px-0 lg:grid-cols-3">
-        <div class="hidden col-span-1 md:block lg:block"></div>
-        <div class="grid items-center bg-white">
-            <div class="flex flex-col w-full gap-12 px-8 lg:px-8 h-fit">
-                <div class="grid mb-6 place-content-center">
-                    <a href="/">
-                        <img class="w-36" src="{{ asset('images/hannahLogo.png') }}" alt="Logo">
-                        {{-- <x-application-logo class="w-20 h-20 text-gray-500 fill-current" /> --}}
-                    </a>
+    <body class="flex flex-col justify-between h-screen">
+
+
+            <div class="w-full bg-white">
+                <div class="pt-7 px-6 lg:px-[530px] lg:pt-[88px] lg:min-w-[1024px] h-full">
+                    <div class="flex justify-center mb-7">
+                        <a href="/">
+                            <img class="w-36" src="{{ asset('images/hannahLogo.png') }}" alt="Logo">
+                            {{-- <x-application-logo class="w-20 h-20 text-gray-500 fill-current" /> --}}
+                        </a>
+                    </div>
+                    {{ $slot }}
                 </div>
-                {{ $slot }}
             </div>
+
+        <div class="col-span-1">
+            @include('layouts.footer')
         </div>
-        <div class="hidden col-span-1 md:block lg:block"></div>
     </body>
 
     <!-- JavaScript for toggling password visibility -->
