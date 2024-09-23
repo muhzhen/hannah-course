@@ -48,13 +48,13 @@
 
 
         <div class="grid grid-cols-2 place-content-center">
-            <!-- Remember Me -->
+            {{-- <!-- Remember Me -->
             <div class="flex items-center">
                 <label for="remember_me" class="inline-flex items-center">
                     <input id="remember_me" type="checkbox" class="text-[#3BBD9C] border-gray-300 rounded shadow-sm focus:ring-[#3BBD9C]" name="remember">
                     <span class="text-base text-gray-600 ms-2">{{ __('Remember me') }}</span>
                 </label>
-            </div>
+            </div> --}}
 
             {{-- <div class="flex items-center justify-end">
                 @if (Route::has('password.request'))
