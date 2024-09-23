@@ -37,6 +37,10 @@ class CourseController extends Controller
             return redirect()->route('dashboardURL', ['url' => $selectFirst]);
          }
 
+          else if ($user->hasRole('admin')) {
+           return redirect()->route('admin.index');
+         }
+
          else {
             Auth::logout();
             request()->session()->invalidate();
