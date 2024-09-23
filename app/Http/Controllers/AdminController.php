@@ -146,8 +146,6 @@ class AdminController extends Controller
         }
     }
 
-
-
     public function tambahKursus(Request $request)
     {
         // Validasi data
@@ -205,44 +203,4 @@ class AdminController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-         try {
-            // Temukan dan hapus kursus berdasarkan ID
-            $kursus = Course::findOrFail($id);
-            $kursus->delete();
-
-            return response()->json([
-                'success' => true,
-                'message' => 'Data berhasil dihapus'
-            ]);
-        } catch (\Exception $e) {
-            // Log exception dan tampilkan pesan kesalahan
-            Log::error('Terjadi kesalahan saat menghapus data: ' . $e->getMessage());
-            return response()->json([
-                'success' => false,
-                'message' => 'Terjadi kesalahan saat menghapus data'
-            ], 500);
-        }
-    }
 }
