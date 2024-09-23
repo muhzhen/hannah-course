@@ -9,12 +9,15 @@
     <!-- jQuery (required by DataTables) -->
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
 
-    <link rel="stylesheet" href="{{asset('css/material-component.css')}}" />
-    <link rel="stylesheet" href="{{asset('css/dataTables.css')}}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.7/css/dataTables.bootstrap5.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/3.0.3/css/responsive.bootstrap5.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-components-web/14.0.0/material-components-web.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.1.7/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.1.7/js/dataTables.material.js"></script>
+    <script src="https://cdn.datatables.net/2.1.7/js/dataTables.bootstrap5.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
+    <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.js"></script>
 
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
@@ -52,6 +55,54 @@
     border-color:red;
     color:red;
   }
+
+
+  /* Custom CSS for pagination */
+
+        /* Style for normal pagination buttons */
+        .page-item .page-link {
+            color: #3ABE9C !important; /* Default text color */
+        }
+
+        /* Style for active pagination button */
+        .page-item.active .page-link {
+            background-color: #3ABE9C !important; /* Background color for active page */
+            color: white !important; /* Text color for active page */
+            border-color: #3ABE9C;
+        }
+
+        /* Hover effect for pagination buttons */
+        .page-item .page-link:hover {
+            background-color: #247762 !important; /* Background color on hover */
+            color: white !important;
+        }
+
+        /* Disabled button styling */
+        .page-item.disabled .page-link {
+            color: #cccccc !important; /* Disabled button color */
+        }
+
+    /* Targeting the search input with specific classes */
+        input[type="search"].form-control.form-control-sm {
+            border: 2px solid #E2E8F0;  /* Custom border color */
+            background-color: #F1F5F9;  /* Custom background color */
+            color: #1E293B;             /* Text color */
+            padding: 5px 10px;          /* Padding inside input */
+            border-radius: 5px;         /* Rounded corners */
+        }
+
+        /* Styling placeholder text */
+        input[type="search"].form-control.form-control-sm::placeholder {
+            color: #3ABE9C;             /* Placeholder text color */
+        }
+
+        /* Change border color on focus */
+        input[type="search"].form-control.form-control-sm:focus {
+            --tw-ring-color: #3ABE9C;
+            border-color: #3ABE9C;      /* Border color when input is focused */
+            outline: none;              /* Remove default focus outline */
+        }
+
 </style>
 
 <body>
@@ -179,8 +230,8 @@
             <h1 class="text-2xl font-bold text-gray-800">List Pengguna</h1>
 
             <div class="p-4 mb-4 rounded h-fit bg-gray-50">
-                     <table id="example" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
+                     <table id="example" class="table" style="width:100%">
+                        <thead class="table-light">
                             <tr>
                                 <th>Nama</th>
                                 <th>Email</th>
@@ -206,6 +257,7 @@
     var table = $('#example').DataTable({
     "processing": true,
     "serverSide": true,
+    "responsive": true,
     "ajax": "{{ route('data.table.user') }}",
     "deferRender": true,
     "columns": [
