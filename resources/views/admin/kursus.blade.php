@@ -224,9 +224,9 @@
 
     <!-- Modal Tambah Kursus -->
     <div id="crud-modal" tabindex="-1" aria-hidden="true" class="fixed inset-0 z-50 hidden w-full h-full overflow-y-auto bg-gray-600 bg-opacity-50">
-        <div class="relative w-full max-w-md max-h-full p-4">
+        <div class="w-full h-screen px-2 py-6 md:py-8 md:px-4 lg:px-0 lg:w-fit">
             <!-- Modal content -->
-            <div class="relative bg-white lg:w-[500px] rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-white lg:w-[800px] rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -262,14 +262,29 @@
                         <div class="col-span-2 sm:col-span-1">
                             <label for="kodeUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode URL</label>
                             <input type="text" name="kodeUrl" id="kodeUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Kode URL" required>
+                            <p class="text-sm text-amber-600">Contoh : Rs3PZQDFaH8</p>
                         </div>
-                        <div class="flex items-end h-full col-span-2 py-2 sm:col-span-1">
+
+                        <div class="flex items-end h-full col-span-2 pb-[28px] sm:col-span-1">
                             <label class="inline-flex items-center cursor-pointer">
                                 <input type="checkbox" id="publikasi" name="publikasi" class="sr-only peer" required>
                                 <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#3CBC9C]"></div>
                                 <span class="text-sm font-medium text-gray-900 ms-3 dark:text-gray-300">Status Publikasi</span>
                             </label>
                         </div>
+
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="kuis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Kuis</label>
+                            <input type="text" name="kuis" id="kuis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Link Kuis" required>
+                            <p class="text-sm text-amber-600">Contoh : https://www.google.com/</p>
+                        </div>
+
+                        <div class="col-span-2 sm:col-span-1">
+                            <label for="materi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Materi</label>
+                            <input type="text" name="materi" id="materi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Link Materi" required>
+                            <p class="text-sm text-amber-600">Contoh : https://www.google.com/</p>
+                        </div>
+
                         <div class="col-span-2">
                             <label for="description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
                             <textarea id="description" name="description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#3CBC9C] focus:border-[#3CBC9C] dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#3CBC9C] dark:focus:border-[#3CBC9C]" placeholder="Tuliskan Deskripsi Video disini" required></textarea>
@@ -289,9 +304,9 @@
 
     <!-- Edit Tambah Kursus -->
     <div id="edit-modal" tabindex="-1" aria-hidden="true" class="fixed inset-0 z-50 justify-center hidden w-full h-full overflow-y-auto bg-gray-600 bg-opacity-50">
-        <div class="relative w-full max-w-md max-h-full p-4">
+        <div class="w-full h-screen px-2 py-6 md:py-8 md:px-4 lg:px-0 lg:w-fit">
             <!-- Modal content -->
-            <div class="relative bg-white lg:w-[500px] rounded-lg shadow dark:bg-gray-700">
+            <div class="relative bg-white w-full lg:w-[800px] rounded-lg shadow dark:bg-gray-700">
                 <!-- Modal header -->
                 <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5 dark:border-gray-600">
                     <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
@@ -328,14 +343,28 @@
                         <div class="col-span-2 sm:col-span-1">
                             <label for="edit-kodeUrl" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Kode URL</label>
                             <input type="text" name="edit-kodeUrl" id="edit-kodeUrl" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="UKZfhqP2-Gg" required="">
+                            <p class="text-sm text-amber-600">Contoh : Rs3PZQDFaH8</p>
                         </div>
-                        <div class="flex items-end h-full col-span-2 py-2 sm:col-span-1">
+                        <div class="flex items-end h-full col-span-2 pb-[28px] sm:col-span-1">
                             <label class="inline-flex items-center cursor-pointer">
                             <input type="checkbox" id="editPublikasi" value="" class="sr-only peer">
                             <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-[#3CBC9C]"></div>
                             <span class="text-sm font-medium text-gray-900 ms-3 dark:text-gray-300">Status Publikasi</span>
                             </label>
                         </div>
+
+                         <div class="col-span-2 sm:col-span-1">
+                            <label for="edit-kuis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Kuis</label>
+                            <input type="text" name="edit-kuis" id="edit-kuis" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Link Kuis" required="">
+                            <p class="text-sm text-amber-600">Contoh : https://www.google.com/</p>
+                        </div>
+
+                          <div class="col-span-2 sm:col-span-1">
+                            <label for="edit-materi" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Link Materi</label>
+                            <input type="text" name="edit-materi" id="edit-materi" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-[#3CBC9C] focus:border-[#3CBC9C] block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Masukan Link Kuis" required="">
+                            <p class="text-sm text-amber-600">Contoh : https://www.google.com/</p>
+                        </div>
+
                         <div class="col-span-2">
                             <label for="edit-description" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Deskripsi</label>
                             <textarea id="edit-description" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-[#3CBC9C] focus:border-[#3CBC9C] dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-[#3CBC9C] dark:focus:border-[#3CBC9C]" placeholder="Tuliskan Deskripsi Video disini"></textarea>
@@ -391,9 +420,11 @@
             var kodeUrl = $('#kodeUrl').val();
             var description = $('#description').val();
             var publikasi = $('#publikasi').is(':checked') ? 1 : 0;
+            var kuis = $('#kuis').val();
+            var materi = $('#materi').val();
 
             // Cek apakah input kosong
-            if (!name || !durasi || !category || !kodeUrl || !description) {
+            if (!name || !durasi || !category || !kodeUrl || !description || !kuis || !materi) {
                 alert('Semua field harus diisi!');
                 return;
             }
@@ -406,6 +437,8 @@
                 kode_url: $('#kodeUrl').val(),
                 deskripsi: $('#description').val(),
                 publikasi: $('#publikasi').is(':checked') ? 1 : 0,
+                kuis: $('#kuis').val(),
+                materi: $('#materi').val(),
                 _token: $('meta[name="csrf-token"]').attr('content') // Mengambil CSRF token
             };
 
@@ -440,6 +473,8 @@
             var kode_url = $('#edit-kodeUrl').val();
             var deskripsi = $('#edit-description').val();
             var publikasi = $('#editPublikasi').is(':checked') ? 1 : 0;
+            var kuis = $('#edit-kuis').val();
+            var materi = $('#edit-materi').val();
 
             // Kirim data ke server menggunakan AJAX
             $.ajax({
@@ -453,7 +488,9 @@
                     tingkat_kesulitan: tingkat_kesulitan,
                     kode_url: kode_url,
                     deskripsi: deskripsi,
-                    publikasi: publikasi
+                    publikasi: publikasi,
+                    kuis:kuis,
+                    materi:materi
                 },
                 success: function(response) {
                     if(response.success) {
@@ -517,6 +554,8 @@
             $('#edit-category').val(data.tingkat_kesulitan); // Mengisi tingkat kesulitan
             $('#edit-kodeUrl').val(data.url); // Mengisi kode URL
             $('#edit-description').val(data.deskripsi); // Mengisi deskripsi video
+            $('#edit-kuis').val(data.kuis);
+            $('#edit-materi').val(data.materi);
 
             // Mengisi status publikasi
             if(data.is_active == 1) {

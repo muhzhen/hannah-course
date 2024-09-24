@@ -1,4 +1,5 @@
 <div class="flex flex-col gap-4 lg:gap-12">
+
             <div class="w-full overflow-hidden h-fit rounded-xl">
                 <!-- Gantilah src dengan URL video YouTube yang sesuai -->
                 <iframe src="https://www.youtube.com/embed/{{$urlCourse->url}}" class="w-full h-[220px] md:h-[400px] lg:h-[500px]" allowfullscreen></iframe>
@@ -61,19 +62,87 @@
                     </div>
                 </div>
 
-                <div class="flex flex-col gap-2 lg:gap-4">
-                    <h1 class="text-lg font-bold lg:text-xl">Deskripsi Video</h1>
-                    <p class="text-base text-[#94A3B8] font-normal leading-relaxed">
-                    <span id="deskripsi">{{$urlCourse->deskripsi}}</span>
-                    <span id="toggleButton" class="text-[#3ABE9C] text-bold cursor-pointer">Selanjutnya</span>
-                    </p>
 
+                <div id="deskripsi-section" class="flex flex-col gap-6">
+                    <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="me-2">
+                                <button class="inline-block p-4 text-[#3BBD9C] border-b-2 border-[#3BBD9C] rounded-t-lg active dark:text-[#3BBD9C] dark:border-[#3BBD9C]" aria-current="page">Deskripsi</button>
+                            </li>
+                            <li class="me-2">
+                                <button id="materiBtn" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Materi & Latihan Soal</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-2 lg:gap-4">
+                        <h1 class="text-lg font-bold lg:text-xl">Deskripsi Video</h1>
+                        <p class="text-base text-[#94A3B8] font-normal leading-relaxed">
+                        <span id="deskripsi">{{$urlCourse->deskripsi}}</span>
+                        <span id="toggleButton" class="text-[#3ABE9C] text-bold cursor-pointer">Selanjutnya</span>
+                        </p>
+                    </div>
                 </div>
+
+                <div id="materi-section" class="hidden gap-6 ">
+                    <div class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+                        <ul class="flex flex-wrap -mb-px">
+                            <li class="me-2">
+                                <button id="deskripsiBtn" class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300" aria-current="page">Deskripsi</button>
+                            </li>
+                            <li class="me-2">
+                                <button class="inline-block p-4 text-[#3BBD9C] border-b-2 border-[#3BBD9C] rounded-t-lg active dark:text-[#3BBD9C] dark:border-[#3BBD9C]">Materi & Latihan Soal</button>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="flex flex-col gap-2 lg:flex-row lg:gap-4">
+
+                        <div class="flex flex-col w-full gap-4 px-8 py-8 border border-slate-200 lg:w-[300px] rounded-xl">
+                            <div class="p-3 bg-red-100 rounded-lg w-fit">
+                                <svg class="w-5 h-5 text-red-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 17v-5h1.5a1.5 1.5 0 1 1 0 3H5m12 2v-5h2m-2 3h2M5 10V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1v6M5 19v1a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-1M10 3v4a1 1 0 0 1-1 1H5m6 4v5h1.375A1.627 1.627 0 0 0 14 15.375v-1.75A1.627 1.627 0 0 0 12.375 12H11Z"/>
+                                </svg>
+                            </div>
+
+                             <p class="font-bold text-slate-900">Materi Pembelajaran</p>
+
+                            <a href="{{$urlCourse->materi}}" target="_blank" type="button" class="text-white w-full bg-[#3BBD9C] hover:bg-[#1b5546] focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center me-2 dark:bg-[#3BBD9C] dark:hover:bg-[#3BBD9C] ">
+
+
+                                <svg class="w-4 h-4 text-white me-2 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V4M7 14H5a1 1 0 0 0-1 1v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4a1 1 0 0 0-1-1h-2m-1-5-4 5-4-5m9 8h.01"/>
+                                </svg>
+
+                            Download
+                            </a>
+                        </div>
+
+                        <div class="flex flex-col w-full gap-4 px-8 py-8 border border-slate-200 lg:w-[300px] rounded-xl">
+                            <div class="p-3 bg-blue-100 rounded-lg w-fit">
+                                <svg class="w-5 h-5 text-blue-600 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 4h3a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3m0 3h6m-6 7 2 2 4-4m-5-9v4h4V3h-4Z"/>
+                                </svg>
+                            </div>
+
+                             <p class="font-bold text-slate-900">Latihan Soal</p>
+
+                            <a href="{{$urlCourse->kuis}}" target="_blank" type="button" class="text-white w-full bg-[#3BBD9C] hover:bg-[#1b5546] focus:outline-none  font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex justify-center items-center me-2 dark:bg-[#3BBD9C] dark:hover:bg-[#3BBD9C] ">
+                                <svg class="w-4 h-4 text-white me-2 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+                                </svg>
+                            Isi Soal
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
             </div>
 </div>
 
 <script>
-   const deskripsiText = `{{$urlCourse->deskripsi}}`; // Gantikan dengan teks yang akan dipotong
+  const deskripsiText = `{{$urlCourse->deskripsi}}`; // Gantikan dengan teks yang akan dipotong
   const deskripsi = document.getElementById('deskripsi');
   const toggleButton = document.getElementById('toggleButton');
   let isExpanded = false; // Variabel untuk melacak apakah teks telah diperluas
@@ -100,5 +169,17 @@
       toggleButton.textContent = 'Selanjutnya'; // Kembalikan teks tombol
     }
     isExpanded = !isExpanded; // Ubah status diperluas
+  });
+
+  //kondisi untuk tab
+  $('#deskripsiBtn').click(function(){
+    $('#deskripsi-section').removeClass('hidden');
+    $('#materi-section').addClass('hidden');
+  });
+
+  $('#materiBtn').click(function(){
+    $('#materi-section').removeClass('hidden');
+    $('#materi-section').addClass('flex flex-col');
+    $('#deskripsi-section').addClass('hidden');
   });
 </script>

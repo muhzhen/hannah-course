@@ -16,6 +16,8 @@ class Course extends Model
         'deskripsi',
         'url',
         'is_active',
+        'kuis',
+        'materi',
     ];
 
     protected $casts = [

@@ -96,7 +96,9 @@ class AdminController extends Controller
                               'deskripsi' => $item->deskripsi,
                               'tingkat_kesulitan' => $item->tingkat_kesulitan,
                               'is_active' => $item->is_active,
-                              'url' => $item->url
+                              'url' => $item->url,
+                              'kuis'=> $item->kuis,
+                              'materi' => $item->materi,
                           ];
                       });
 
@@ -156,6 +158,8 @@ class AdminController extends Controller
             'kode_url' => 'required|string',
             'deskripsi' => 'nullable|string',
             'publikasi' => 'required|boolean',
+            'kuis' => 'required',
+            'materi'=> 'required',
         ]);
 
         // Simpan data kursus
@@ -166,6 +170,8 @@ class AdminController extends Controller
             'url' => $validated['kode_url'],
             'deskripsi' => $validated['deskripsi'],
             'is_active' => $validated['publikasi'],
+            'kuis' => $validated['kuis'],
+            'materi' => $validated['materi'],
         ]);
 
         return response()->json(['message' => 'Kursus berhasil ditambahkan']);
@@ -182,6 +188,8 @@ class AdminController extends Controller
             'kode_url' => 'required|string|max:255',
             'deskripsi' => 'required|string',
             'publikasi' => 'required|boolean',
+            'kuis' => 'required',
+            'materi'=> 'required',
         ]);
 
         // Temukan kursus dengan ID dan perbarui
@@ -193,6 +201,8 @@ class AdminController extends Controller
             'url' => $validatedData['kode_url'],
             'deskripsi' => $validatedData['deskripsi'],
             'is_active' => $validatedData['publikasi'],
+            'kuis' => $validatedData['kuis'],
+            'materi' => $validatedData['materi'],
         ]);
 
         return response()->json(['message' => 'Data berhasil diperbarui','success' => true,]);
