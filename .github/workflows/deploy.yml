@@ -21,12 +21,12 @@ jobs:
     - name: Rsync Deploy
       uses: easingthemes/ssh-deploy@v2.1.6
       with:
-          args: "-avz --exclude='node_modules' --exclude='.git'"
-          source: "/home/runner/work/hannah-course/hannah-course/"
-          remote_host: "77.37.44.209"
-          remote_user: "hannahasaindonesia-app"
-          target: "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/"
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+        args: "-avz --exclude='node_modules' --exclude='.git'"
+        source: "/home/runner/work/hannah-course/hannah-course/"
+        remote_host: "77.37.44.209"
+        remote_user: "hannahasaindonesia-app"
+        target: "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/"
+        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Install dependencies
       run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
