@@ -13,7 +13,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Deploy to CloudPanel
+    - name: Setup SSH
       env:
         SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
       run: |
@@ -21,4 +21,6 @@ jobs:
         echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan 77.37.44.209 >> ~/.ssh/known_hosts
-        ssh hannahasaindonesia-app@77.37.44.209 "cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com && ./deploy.sh"
+
+    - name: Deploy to CloudPanel
+      run: ssh hannahasaindonesia-app@77.37.44.209 "cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com && ./deploy.sh"
