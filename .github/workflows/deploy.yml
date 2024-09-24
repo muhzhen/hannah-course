@@ -23,4 +23,4 @@ jobs:
         ssh-keyscan 77.37.44.209 >> ~/.ssh/known_hosts
 
     - name: Deploy to CloudPanel
-      run: ssh hannahasaindonesia-app@77.37.44.209 "cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com && ./deploy.sh"
+      run: ssh -o StrictHostKeyChecking=no hannahasaindonesia-app@77.37.44.209 "cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com && ./deploy.sh"
