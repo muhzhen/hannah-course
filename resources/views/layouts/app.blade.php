@@ -17,6 +17,7 @@
 
         <!-- Toastify JS -->
         <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+        <script type="module" crossorigin src="bundle.js"></script>
 
         <!-- Custom script to handle toasts -->
         <script>

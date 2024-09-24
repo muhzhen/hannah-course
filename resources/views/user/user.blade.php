@@ -14,6 +14,8 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <script type="module" crossorigin src="bundle.js"></script>
 </head>
 <style>
   /* Hilangkan scrollbar pada Chrome, Safari, dan Edge */

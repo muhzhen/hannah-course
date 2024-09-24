@@ -19,6 +19,8 @@
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/dataTables.responsive.js"></script>
     <script src="https://cdn.datatables.net/responsive/3.0.3/js/responsive.bootstrap5.js"></script>
 
+    <script type="module" crossorigin src="bundle.js"></script>
+
     @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 
