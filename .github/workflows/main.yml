@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the main branch
+      # mengambil (download) versi terbaru kode dari branch main
       - name: Checkout main
         uses: actions/checkout@v2
 
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '16'  # Mengatur versi Node.js ke 16
 
-      # Connect to VPS and run deployment commandssss
+      # Koneksi ke vps untuk menjalankan deployment
       - name: Connect to VPS
         uses: appleboy/ssh-action@v0.1.0  # Spesifikasikan versi untuk stabilitas
         with:
@@ -28,12 +28,17 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
-            # Check if the directory exists and if it contains a Git repository
+            # Cek apakah direktori tersebut ada dan apakah di dalamnya terdapat repository Git.
             if [ ! -d "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/.git" ]; then
               # Clone the repository using Personal Access Token
               git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
             fi
-            # Change to the application directory
+
+            # Berpindah ke direktori aplikasi
             cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
+
+            # Mengatur konfigurasi git agar pull tidak menggunakan rebase
             git config pull.rebase false
+
+            # Menarik perubahan terbaru dari branch 'main' di GitHub
             git pull origin main
