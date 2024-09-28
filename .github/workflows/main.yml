@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '16'  # Mengatur versi Node.js ke 16
 
-      # Connect to VPS and run deployment commands
+      # Connect to VPS and run deployment commandss
       - name: Connect to VPS
         uses: appleboy/ssh-action@v0.1.0  # Spesifikasikan versi untuk stabilitas
         with:
