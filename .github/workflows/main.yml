@@ -17,6 +17,6 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           port: 22
           script: |
-            cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io
+            cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
             git config pull.rebase false
             git pull origin main
