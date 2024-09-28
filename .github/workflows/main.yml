@@ -28,6 +28,12 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}  # Tetap menggunakan password
           port: 22
           script: |
+            # Check if the directory exists and if it contains a Git repository
+            if [ ! -d "/home/techbyzeyn-app/htdocs/app.techbyzeyn.io/.git" ]; then
+              # Clone the private repository if it does not exist
+              git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
+            fi
+            # Change to the application directory
             cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
             git config pull.rebase false
             git pull origin main
