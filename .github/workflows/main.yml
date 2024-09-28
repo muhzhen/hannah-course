@@ -31,14 +31,22 @@ jobs:
             # Check if the directory exists and if it contains a Git repository
             if [ ! -d "/home/techbyzeyn-app/htdocs/app.techbyzeyn.io/.git" ]; then
               # Clone the private repository if it does not exist
+              echo "Cloning repository..."
               git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
             else
-              # If the repository exists, set up the remote origin
+              echo "Repository already exists. Checking remote configuration..."
               cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
-              git remote set-url origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git
+
+              # Check if remote 'origin' exists
+              if git remote get-url origin > /dev/null 2>&1; then
+                echo "Remote 'origin' exists. Pulling latest changes..."
+              else
+                echo "Remote 'origin' not found. Setting it up..."
+                git remote add origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git
+              fi
             fi
 
-            # Change to the application directory
+            # Change to the application directory and pull changes
             cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
             git config pull.rebase false
             git pull origin main
