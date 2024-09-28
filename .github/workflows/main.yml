@@ -3,18 +3,23 @@ name: Deploy to Main
 on:
   push:
     branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
+      # Checkout the main branch
       - name: Checkout main
         uses: actions/checkout@v2
+
+      # Connect to VPS and run deployment commands
       - name: Connect to VPS
-        uses: appleboy/ssh-action@master
+        uses: appleboy/ssh-action@v0.1.0  # Spesifikasikan versi untuk stabilitas
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          password: ${{ secrets.SSH_PASSWORD }}  # Tetap menggunakan password
           port: 22
           script: |
             cd /home/techbyzeyn-app/htdocs/app.techbyzeyn.io/
