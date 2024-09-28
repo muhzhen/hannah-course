@@ -28,35 +28,12 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}  # Tetap menggunakan password
           port: 22
           script: |
-            # Add GitHub to known hosts to avoid host key verification failed error
-            echo "Adding GitHub to known hosts..."
-            mkdir -p ~/.ssh
-            ssh-keyscan -H github.com >> ~/.ssh/known_hosts
-
-            # Load the SSH private key
-            echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-            chmod 600 ~/.ssh/id_rsa
-
             # Check if the directory exists and if it contains a Git repository
             if [ ! -d "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/.git" ]; then
               # Clone the repository if it does not exist
-              echo "Cloning repository..."
-              git clone git@github.com:muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
-            else
-              echo "Repository already exists. Checking remote configuration..."
-              cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
-
-              # Verify if the remote 'origin' exists
-              if git remote get-url origin > /dev/null 2>&1; then
-                echo "Remote 'origin' exists. Changing to SSH..."
-                # Change the remote URL to use SSH
-                git remote set-url origin git@github.com:muhzhen/hannah-course.git
-              else
-                echo "Remote 'origin' not found. Setting it up..."
-                git remote add origin git@github.com:muhzhen/hannah-course.git
-              fi
-
-              # Pull the latest changes
-              git config pull.rebase false
-              git pull origin main || { echo "Failed to pull from remote repository"; exit 1; }
+              git clone https://github.com/muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
             fi
+            # Change to the application directory
+            cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
+            git config pull.rebase false
+            git pull origin main
