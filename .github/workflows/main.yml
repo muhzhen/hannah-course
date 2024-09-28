@@ -49,4 +49,6 @@ jobs:
             # Change to the application directory and pull changes
             cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
             git config pull.rebase false
-            git pull origin main
+
+            # Pull the latest changes
+            git pull origin main || { echo "Failed to pull from remote repository"; exit 1; }
