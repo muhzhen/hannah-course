@@ -25,31 +25,15 @@ jobs:
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          password: ${{ secrets.SSH_PASSWORD }}
+          password: ${{ secrets.SSH_PASSWORD }}  # Tetap menggunakan password
           port: 22
           script: |
             # Check if the directory exists and if it contains a Git repository
             if [ ! -d "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/.git" ]; then
-              # Clone the private repository if it does not exist
-              echo "Cloning repository..."
-              git clone https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
-            else
-              echo "Repository already exists. Checking remote configuration..."
-              cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
-
-              # Configure Git to use the PAT for authentication
-              git config --global credential.helper store
-              echo "https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic" > ~/.git-credentials
-
-              # Verify if the remote 'origin' exists
-              if git remote get-url origin > /dev/null 2>&1; then
-                echo "Remote 'origin' exists. Pulling latest changes..."
-              else
-                echo "Remote 'origin' not found. Setting it up..."
-                git remote add origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git
-              fi
-
-              # Pull the latest changes
-              git config pull.rebase false
-              git pull origin main || { echo "Failed to pull from remote repository"; exit 1; }
+              # Clone the repository if it does not exist
+              git clone https://github.com/muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
             fi
+            # Change to the application directory
+            cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
+            git config pull.rebase false
+            git pull origin main
