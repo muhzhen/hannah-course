@@ -31,7 +31,7 @@ jobs:
             # Check if the directory exists and if it contains a Git repository
             if [ ! -d "/home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/.git" ]; then
               # Clone the repository if it does not exist
-              git clone https://github.com/muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
+              git clone git@github.com:muhzhen/hannah-course.git /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
             fi
             # Change to the application directory
             cd /home/hannahasaindonesia-app/htdocs/app.hannahasaindonesia.com/
