@@ -41,6 +41,14 @@ jobs:
               git config --global credential.helper store
               echo "https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic" > ~/.git-credentials
 
+              # Verify if the remote 'origin' exists
+              if git remote get-url origin > /dev/null 2>&1; then
+                echo "Remote 'origin' exists. Pulling latest changes..."
+              else
+                echo "Remote 'origin' not found. Setting it up..."
+                git remote add origin https://${{ secrets.PERSONAL_ACCESS_TOKEN }}:x-oauth-basic@github.com/muhzhen/hannah-course.git
+              fi
+
               # Pull the latest changes
               git config pull.rebase false
               git pull origin main || { echo "Failed to pull from remote repository"; exit 1; }
