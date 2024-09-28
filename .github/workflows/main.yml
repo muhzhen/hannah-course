@@ -39,7 +39,9 @@ jobs:
 
               # Verify if the remote 'origin' exists
               if git remote get-url origin > /dev/null 2>&1; then
-                echo "Remote 'origin' exists. Pulling latest changes..."
+                echo "Remote 'origin' exists. Changing to SSH..."
+                # Change the remote URL to use SSH
+                git remote set-url origin git@github.com:muhzhen/hannah-course.git
               else
                 echo "Remote 'origin' not found. Setting it up..."
                 git remote add origin git@github.com:muhzhen/hannah-course.git
