@@ -7,7 +7,7 @@
 
          <!-- tittle -->
          <div class="grid justify-between grid-cols-2">
-            <h1 class="text-2xl font-bold">Login AAAAkun</h1>
+            <h1 class="text-2xl font-bold">Login Akun</h1>
             <a class="flex flex-row-reverse items-center" href="{{ route('register') }}">
                 <div class="flex flex-row items-center justify-end">
                     <p class="text-base text-right">Daftar Akun</p>
